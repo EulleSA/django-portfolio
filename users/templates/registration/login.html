@@ -1,0 +1,24 @@
+{% extends 'projects/base.html' %}
+
+<style>
+    label, input {
+        display: block;
+    }
+    span.helptext {
+        display: none;
+    }
+</style>
+
+
+{% block content %}
+    <h2>Login</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Login">
+    </form>
+
+    <a href="{% url 'users:dashboard' %}">Back to Dashboard</a>
+    <a href="{% url 'users:password_reset' %}">Reset password</a>
+    {% endblock %}
